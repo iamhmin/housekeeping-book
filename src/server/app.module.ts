@@ -1,12 +1,24 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
+import { RenderModule } from 'nest-next';
+import Next from 'next';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RecordsModule } from './records/records.module';
+import { NODE_ENV } from 'src/shared/constants/env';
+import { AuthModule } from './api/auth/auth.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(), 
+  imports: [
+    TypeOrmModule.forRoot(),
     RecordsModule,
+    //AuthModule,
+    RenderModule.forRootAsync(
+      Next({ dev: NODE_ENV === 'development' }),
+      /* null means that nest-next 
+          should look for pages in root dir */
+      { viewsDir: null },
+    ),
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,7 +1,7 @@
   .App {
     text-align: center;
   }
-  @import '~antd/dist/antd.css';
+  @import '../node_modules/antd/dist/antd.css';
   
   .App-logo {
     height: 40vmin;
@@ -132,10 +132,6 @@
     margin: 0;
   }
   
-  input[type="radio"],
-  input[type="checkbox"] {
-    accent-color: var(--color-black);
-  }
   
   /* Typography */
   
@@ -904,3 +900,42 @@
   .name {
     color: var(--color-black);
   }
+
+  
+.events {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .events .ant-badge-status {
+    width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .notes-month {
+    font-size: 28px;
+    text-align: center;
+  }
+  .notes-month section {
+    font-size: 28px;
+  }
+
+  body {
+    background: black;
+}
+
+.clock {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #17D4FE;
+    font-size: 60px;
+    font-family: Orbitron;
+    letter-spacing: 7px;
+   
+
+
+}

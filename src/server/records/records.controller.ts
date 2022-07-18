@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Render,
+} from '@nestjs/common';
 import { CreateRecordDto } from './dto/create-record.dto';
 import { Record } from './record.entity';
 import { RecordsService } from './records.service';
@@ -12,14 +20,24 @@ export class RecordsController {
     return this.recordsService.create(createRecordDto);
   }
 
-  @Get()
-  findAll(): Promise<Record[]> {
+  @Get('/daily')
+  @Render('views/records/daily/Daily')
+  async findAll() {
+    return { records: await this.recordsService.findAll() };
+  }
+
+  @Get('/weekly')
+  @Render('views/records/weekly/Weekly')
+  findAllWeekly(): Promise<Record[]> {
     return this.recordsService.findAll();
   }
-
-
-  @Delete(':no')
-  remove(@Param('no') no: string): Promise<void> {
-    return this.recordsService.remove(no);
+  @Get('/monthly-yearly')
+  @Render('views/records/monthly-yearly/MonthlyYearly')
+  findAllMonthly(): Promise<Record[]> {
+    return this.recordsService.findAll();
   }
+  // @Delete(':no')
+  // remove(@Param('no') no: string): Promise<void> {
+  //   return this.recordsService.remove(no);
+  // }
 }

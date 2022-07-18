@@ -4,4 +4,5 @@ export class CreateRecordDto {
    type: RecordType;
    amount: number;
    remark: string;
+   createdDate: Date;
   }
