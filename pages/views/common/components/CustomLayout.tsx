@@ -30,18 +30,18 @@ export default function CustomLayout({ children }) {
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Sider>
+      <Sider style={{ backgroundColor: 'deeppink' }}>
         <div className="App-logo" />
         <Menu
-          theme="dark"
           defaultSelectedKeys={['1']}
           mode="inline"
           onClick={handleClick}
           items={items}
+          style={{ backgroundColor: 'deeppink', color: 'white' }}
         />
       </Sider>
       <Layout>
-        <HeaderComponent sessionInfo={undefined} />
+        <HeaderComponent sessionInfo={undefined}/>
         <Content style={{ margin: '0 16px' }}>
           <main>{children}</main>
         </Content>

@@ -7,12 +7,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { RecordsModule } from './records/records.module';
 import { NODE_ENV } from 'src/shared/constants/env';
 import { AuthModule } from './api/auth/auth.module';
+import { LoginModule } from "./login/login.module";
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
     RecordsModule,
-    //AuthModule,
+    AuthModule,
+    LoginModule,
     RenderModule.forRootAsync(
       Next({ dev: NODE_ENV === 'development' }),
       /* null means that nest-next 

@@ -20,6 +20,12 @@ export class RecordsController {
     return this.recordsService.create(createRecordDto);
   }
 
+  @Get('/save-record')
+  @Render('views/records/save-record/SaveRecord')
+  async saveRecord() {
+    return { records: await this.recordsService.findAll() };
+  }
+
   @Get('/daily')
   @Render('views/records/daily/Daily')
   async findAll() {
@@ -31,6 +37,7 @@ export class RecordsController {
   findAllWeekly(): Promise<Record[]> {
     return this.recordsService.findAll();
   }
+
   @Get('/monthly-yearly')
   @Render('views/records/monthly-yearly/MonthlyYearly')
   findAllMonthly(): Promise<Record[]> {

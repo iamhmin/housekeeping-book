@@ -935,7 +935,8 @@
     font-size: 60px;
     font-family: Orbitron;
     letter-spacing: 7px;
-   
-
-
 }
+  .ant-menu-sub.ant-menu-inline {
+    border: 0;
+    background-color: pink !important;
+  }
