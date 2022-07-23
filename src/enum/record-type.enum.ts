@@ -1,0 +1,7 @@
+export enum RecordType {
+    INCOME = 'INCOME',
+    EXPENSE = 'EXPENSE',
+    SOCIALINCOME = 'SOCIALINCOME',
+    SOCIALEXPENSE = 'SOCIALEXPENSE'
+  }
+  
